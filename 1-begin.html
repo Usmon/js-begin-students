@@ -1,0 +1,69 @@
+<html>
+<head>
+	<title>JS begin</title>
+</head>
+<body id="my-body">
+	<!-- HTML CODE -->
+	
+	<button onclick="changeBackColor();">
+		Buni bosing
+	</button>
+	
+	<script>
+	//here code
+	var myVar = 5;
+	var myVarTwo = 55;
+	
+	if(myVar >= myVarTwo)
+	{
+		//	console.log("myVar KATTA");
+	}
+	else
+	{
+		//console.log("myVarTwo KATTA");
+	}
+	
+	for(var index = 0; index < 10; index++)
+	{
+		//console.log(index);
+	}
+	
+	var myString = 'my string';
+	
+	function myFunc()
+	{
+		alert('With myFunc');
+	}
+	
+	//myFunc();
+	
+	var myArray = [ 1, 3, 5, 4];
+	//console.log(myArray);
+	
+	//console.log(myVar * myVarTwo);
+	
+	var student = {
+		name: 'Islom',
+		last_name: 'Karimov',
+		group: '912-17'
+	};
+	
+	//console.table(student);
+	
+	var colors = ['blue', 'red', 'green', 'purple'];
+	var counter = 0;
+	function changeBackColor()
+	{
+		setInterval(function(){
+			var body = document.getElementById('my-body').style.background = colors[counter];
+			if(counter >= colors.length-1)
+				counter = 0;
+			else
+				counter++;
+		}, 1500);
+	}
+
+	
+	</script>
+</body>
+</html>
