@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Second lesson Js</title>
+</head>
+<body>
+<input type="text" id="number-input" onkeyup="inputKeyPress(event)">
+<button onclick="drawTable()">Yasash</button>
+<button onclick="clearTable()">Tozalash</button>
+<hr>
+<table border="1" width="50%" cellspacing="1" cellpadding="1">
+    <thead>
+        <th width="100px">№</th>
+        <th>Nomi</th>
+    </thead>
+    <tbody id="table-tbody">
+
+    </tbody>
+</table>
+
+<script>
+    var numberInput = document.getElementById('number-input');
+    // console.log(numberInput.value);
+    //Draw table row
+    var table = document.getElementById('table-tbody');
+
+    function drawTable()
+    {
+        var limit = numberInput.value;
+        if(!limit.length){
+            alert('Son kiriting!');
+            return false;
+        }
+        var rows = '';
+        for(var index = 1; index<=limit; index++)
+        {
+           rows += '<tr><td>'+index+'</td><td>Ism famiyla</td></tr>';
+           // console.log(rows);
+        }
+        table.innerHTML = rows;
+    }
+
+    function clearTable()
+    {
+        table.innerHTML = '';
+    }
+
+    //Key press
+    function inputKeyPress(e) {
+        console.log(e);
+        if(e.keyCode == 13)
+            drawTable();
+    }
+
+</script>
+</body>
+</html>
