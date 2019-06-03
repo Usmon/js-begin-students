@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>BEGIN 3.1</title>
+    <style>
+        #circle {
+            width: 10px;
+            height: 10px;
+            background: green;
+            border: 1px solid red;
+            border-radius: 50%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            transition: 0.5s;
+        }
+    </style>
+</head>
+<body onkeyup="move(event)">
+<div id="circle"></div>
+
+<script>
+    var circle = document.getElementById('circle');
+    // var topCount = 0;
+    // var counter = 100;
+    // setInterval(function(){
+    //     circle.style.top = topCount+'px';
+    //     circle.style.left = topCount+'px';
+    //     topCount++;
+    // }, counter);
+    var xCoord = 0;
+    var yCoord = 0;
+    var step = 50;
+
+    var increase = Math.PI*2 / 100;
+    var x = y = i = 0;
+    var counter = 0;
+    setInterval(function(){
+        x = i;
+        y = Math.sin(counter) / 2 + 0.5;
+        counter += increase;
+        i += 0.01;
+        // console.log(counter);
+        //Set position
+        circle.style.left = (x*10)+'px';
+        circle.style.top = (y*10)+'px';
+    },100);
+
+</script>
+</body>
+</html>
