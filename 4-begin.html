@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>4 lesson</title>
+</head>
+<body>
+<input type="text" id="input-phone" placeholder="Phone">
+<input type="text" id="input-name" placeholder="Name">
+<button onclick="addContact()">Add</button>
+<hr>
+<table width="100%" border="1px" cellpadding="0" cellspacing="0">
+    <thead>
+        <th>Name</th>
+        <th>Phone</th>
+        <th width="100px">Action</th>
+    </thead>
+    <tbody id="table_body"></tbody>
+</table>
+
+<script>
+    var phone = document.getElementById('input-phone');
+    var name_contact  = document.getElementById('input-name');
+    var table_body = window.document.getElementById('table_body');
+    var contacts = [];
+    var counter = 0;
+
+    function addContact(){
+        //Add to contact array
+        contacts.push({
+            id: ++counter,
+            name_contact: name_contact.value,
+            phone: phone.value
+        });
+        //Draw row
+        var row = '<tr>' +
+                    '<td>'+name_contact.value+'</td>' +
+                    '<td>'+phone.value+'</td>' +
+                    '<td><button onclick="deleteContact('+counter+')">Delete</button></td>' +
+                   '</tr>';
+        //Add row to table
+        table_body.innerHTML += row;
+        //Reset input
+        name_contact.value = '';
+        phone.value = '';
+    }
+
+    function deleteContact(id){
+        table_body.innerHTML = '';
+        for (var index = 0; index < contacts.length; index++){
+            if(contacts[index].id != id){
+                var row = '<tr>' +
+                    '<td>'+contacts[index].name_contact+'</td>' +
+                    '<td>'+contacts[index].phone+'</td>' +
+                    '<td><button onclick="deleteContact('+index+')">Delete</button></td>' +
+                    '</tr>';
+                //Add row to table
+                table_body.innerHTML += row;
+
+            }
+            else {
+                delete contacts[index];
+            }
+        }
+
+    }
+</script>
+</body>
+</html>
