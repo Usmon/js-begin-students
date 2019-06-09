@@ -23,13 +23,8 @@
     var name_contact  = document.getElementById('input-name');
     var table_body = window.document.getElementById('table_body');
 
-    var counter = 0;
     var contacts = getContacts();
-
-    var myArray = new Array();
-    myArray.push(64);
-    myArray.push(69);
-    localStorage.setItem('myData', myArray);
+    var counter = contacts.length;
 
     //Init
     function init(){
@@ -40,7 +35,7 @@
                 var row = '<tr>' +
                     '<td>'+contacts[index].name_contact+'</td>' +
                     '<td>'+contacts[index].phone+'</td>' +
-                    '<td><button onclick="deleteContact('+index+')">Delete</button></td>' +
+                    '<td><button onclick="deleteContact('+contacts[index].id+')">Delete</button></td>' +
                     '</tr>';
                 //Add row to table
                 table_body.innerHTML += row;
@@ -101,11 +96,11 @@
 
         table_body.innerHTML = '';
         for (var index = 0; index < contacts.length; index++){
-            if(contacts[index].id != id){
+            if(contacts[index] != null && contacts[index].id != id){
                 var row = '<tr>' +
                     '<td>'+contacts[index].name_contact+'</td>' +
                     '<td>'+contacts[index].phone+'</td>' +
-                    '<td><button onclick="deleteContact('+index+')">Delete</button></td>' +
+                    '<td><button onclick="deleteContact('+contacts[index].id+')">Delete</button></td>' +
                     '</tr>';
                 //Add row to table
                 table_body.innerHTML += row;
