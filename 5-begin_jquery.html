@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>jQuery begin</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+</head>
+<body>
+<input type="text" value="987456123" id="my-input"> <button id="my-button">Click me</button>
+<script>
+    // var withjQuery = $('#my-input');
+    // var pureJS     = document.getElementById('my-input');
+    // console.log( withjQuery.val() );
+    // console.log( pureJS.value );
+    //Begin button click
+    $('#my-button').click(function () {
+        // $(this).text('O`zgartirilgan knopka!').fadeOut(3000).delay(1000).fadeIn(3000);
+        $('#my-input').css({
+            backgroundColor: 'red',
+            border: '1px solid black'
+        });
+        // $(this).hide();
+        // $(this).slideUp(2000);
+        // $(this).slideDown(2000);
+        // $(this).slideToggle(2000);
+        // $('body').html('<h1>bu append orqali</h1>');
+        // $('body').append('<h1>bu append orqali</h1>');
+        // $('body').prepend('<h1>bu append orqali</h1>');
+    });
+
+    $('#my-input').change(function () {
+        console.log($(this).val());
+    });
+
+</script>
+</body>
+</html>
