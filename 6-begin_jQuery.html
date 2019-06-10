@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>6 lesson jQuery</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+</head>
+<body>
+<div class="my-class"> 1 chi div </div>
+<div> 2 chi div </div>
+<div class="my-class"> 2 chi div </div>
+<div> 3 chi div </div>
+<div class="my-class"> 3 chi div </div>
+
+<div>
+    <h3>BU H3 TITLE</h3>
+    <h3 id="my-h3">BU H3 TITLE</h3>
+</div>
+<div class="my-div-content">
+    <span>
+        <ul>
+            <li>1</li>
+            <li id="li-two">2</li>
+            <li>3</li>
+        </ul>
+    </span>
+</div>
+<table id="students-table" border="1px" width="50%">
+    <thead>
+        <th>Ism</th>
+        <th>Guruh</th>
+        <th>Amallar</th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>Jaloladdin</td>
+            <td>911-13</td>
+            <td><button data-id="1" class="delete">Delete</button></td>
+        </tr>
+        <tr>
+            <td>Islom</td>
+            <td>911-12</td>
+            <td><button data-id="2" class="delete">Delete</button></td>
+        </tr>
+    </tbody>
+</table>
+
+<script>
+    // $('div:first').css({
+    //     backgroundColor: 'black',
+    //     color: 'white'
+    // });
+    // $('div:last').css({
+    //     backgroundColor: 'red',
+    //     color: 'white'
+    // });
+    // $('.my-class').css({
+    //     backgroundColor: 'red',
+    //     color: 'white'
+    // }).fadeOut(5000);
+
+    $('div > #my-h3').css({
+        backgroundColor: 'red',
+        color: 'white'
+    }); //.slideUp(5000);
+
+    $('.my-div-content').find('#li-two').css({
+        border: '2px solid red'
+    });
+
+    $('#students-table tbody .delete').click(function(){
+        console.log($(this).data('id'));
+        // $(this).data('id', 'changedValue');
+        $(this).closest('tr').remove();
+    });
+    //.removeClass('class-name')
+    //.addClass('class-name')
+    //.toggleClass('class-name')
+
+</script>
+</body>
+</html>

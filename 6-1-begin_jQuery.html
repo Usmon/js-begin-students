@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>jQuery with Form</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+</head>
+<body>
+<form id="my-form" method="GET">
+    <input type="text" name="full_name" placeholder="Full name"><br>
+    <input type="text" name="group_name" placeholder="Group name"><br>
+    <input type="text" name="phone" placeholder="Phone number"><br>
+    <button type="submit">Save</button>
+</form>
+
+<script>
+    $('form#my-form').submit(function (e) {
+        //Stop current sending to server
+        e.preventDefault();
+        //Begin our code here:
+        var serializedData = $(this).serialize();
+        console.log(serializedData);
+    });
+</script>
+</body>
+</html>
