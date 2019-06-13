@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+</head>
+<body>
+<ul id="main-menu">
+    <li><a data-page="home" href="#">Home</a></li>
+    <li><a data-page="news" href="#">News</a></li>
+    <li><a data-page="about" href="#">About</a></li>
+    <li><a data-page="contact" href="#">Contact</a></li>
+</ul>
+<div id="main-content"></div>
+
+<script>
+    //Load function
+    function loadPage(name) {
+        var path = 'pages/';
+        $.ajax({
+           url: path+name+'.php',
+           type: 'GET',
+           dataType: 'html',
+           success: function (data) {
+               $('div#main-content').html(data);
+           }
+        });
+    }
+    //Default page
+    loadPage('home');
+    //On click
+    $('ul#main-menu a').click(function () {
+        var page = $(this).data('page');
+        loadPage(page);
+    });
+</script>
+</body>
+</html>
