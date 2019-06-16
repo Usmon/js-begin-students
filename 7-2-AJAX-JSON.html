@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>JSON data</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+</head>
+<body>
+<h2>News</h2>
+    <div id="news-content">
+
+    </div>
+
+    <script>
+        // var myJSON = [
+        //     {
+        //       name: 'Jahongir',
+        //       phone: '+9997979799',
+        //       address: 'Xorazm, Gurlan shahri'
+        //     },
+        //     {
+        //         name: 'Jahongir 2',
+        //         phone: '+9997979729',
+        //         address: 'Xorazm, Gurlan shahri'
+        //     },
+        //     {
+        //         name: 'Jahongir 3',
+        //         phone: '+9997979793',
+        //         address: 'Xorazm, Gurlan shahri'
+        //     },
+        // ];
+
+        function loadNewsList() {
+            $.ajax({
+                url: 'backend/news-list.php',
+                data: 'GET',
+                dataType: 'JSON',
+                success: function (data) {
+                    // var content = $('div#news-content');
+                    // for (var index = 0; index < data.length; index++) {
+                    //     var row = '<div class="news-item">\n' +
+                    //         '            <h3>'+data[index].title+'</h3>\n' +
+                    //         '            <p>'+data[index].content+'</p>\n' +
+                    //         '            <time>'+ data[index].dateTime +'</time>\n' +
+                    //         '        </div>';
+                    //     content.append(row);
+                    // }
+                    $.each(data, function (index, item) {
+                        console.log(index);
+                        var content = $('div#news-content');
+                        var row = '<div class="news-item">\n' +
+                            '            <h3>'+item.title+'</h3>\n' +
+                            '            <p>'+item.content+'</p>\n' +
+                            '            <time>'+ item.dateTime +'</time>\n' +
+                            '        </div>';
+
+                        content.append(row);
+                    });
+                }
+            });
+        }
+    </script>
+</body>
+</html>
