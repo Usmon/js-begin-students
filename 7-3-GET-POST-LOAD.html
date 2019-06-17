@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>GET/POST/LOAD methods</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+</head>
+<body>
+<form action="" id="post-test">
+    <input type="text" name="first-name">
+    <input type="text" name="last-name">
+    <button type="submit">SEND</button>
+</form>
+<div id="content">
+
+</div>
+<div id="pager">
+
+</div>
+<script>
+    $('#content').load('pages/news.php');
+    // $('#pager').load('pages/news.php #pagination');
+
+    $('body').on('click', 'a.more-view-btn', function (e) {
+        e.preventDefault();
+        var id = $(this).data('id');
+        $.get('pages/news-view.php', {idNews: id, secondParam: 'STRINGVARIANt'}, function (data) {
+            $('#content').html(data);
+        });
+    });
+
+    $('#post-test').submit(function (e) {
+        e.preventDefault();
+        $.post('backend/write-to-file.php', $(this).serialize(), function (data) {
+            alert(data);
+        });
+    });
+</script>
+</body>
+</html>
