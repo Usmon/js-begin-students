@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Photo Gallery</title>
+    <link rel="stylesheet" href="src/fancybox/jquery.fancybox-1.3.4.css">
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4/jquery.min.js"></script>
+</head>
+<body>
+<ul id="gallery-main">
+    <li>
+        <a class="gallery" rel="main-gallery" href="images/12868632153_b0a5718c22_b.jpg">
+            <img src="images/12868632153_b0a5718c22_m.jpg" alt="">
+        </a>
+    </li>
+    <li>
+        <a class="gallery" rel="main-gallery" href="images/15602332537_bae1aaccd8_b.jpg">
+            <img src="images/15602332537_bae1aaccd8_m.jpg" alt="">
+        </a>
+    </li>
+    <li>
+        <a class="gallery" rel="main-gallery" href="images/15959236842_6dbcb5b4c8_b.jpg">
+            <img src="images/15959236842_6dbcb5b4c8_m.jpg" alt="">
+        </a>
+    </li>
+</ul>
+<script src="src/fancybox/jquery.fancybox-1.3.4.js"></script>
+<script>
+    $('a.gallery').fancybox({
+        'transitionIn'	:	'elastic',
+        'transitionOut'	:	'elastic',
+        'speedIn'		:	600,
+        'speedOut'		:	200,
+        'overlayShow'	:	false
+    });
+</script>
+</body>
+</html>
